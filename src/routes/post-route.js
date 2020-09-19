@@ -11,7 +11,7 @@ router.post('', auth(roles.Boss, roles.Servant), postController.insertPost);
 router.put('/:id', auth(roles.Boss, roles.Servant), postController.updatePost);
 router.delete('/:id', auth(roles.Boss, roles.Servant), postController.removePost);
 
-router.post('/comment/:id', auth(roles.Boss, roles.Servant), postController.insertComment);
-router.delete('/comment/:id', auth(roles.Boss, roles.Servant), postController.removeComment);
+router.put('/comment/:id', auth(roles.Boss, roles.Servant), postController.insertComment);
+router.put('/comment/rem/:id', auth(roles.Boss, roles.Servant), postController.removeComment);
 
 module.exports = router;

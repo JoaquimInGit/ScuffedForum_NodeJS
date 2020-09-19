@@ -25,7 +25,6 @@ exports.insertCategory = (body) => {
 };
 exports.removeCategory = (id) => {
     return new Promise((resolve, reject) => {
-        console.log(id)
         db
             .collection('category')
             .deleteOne({ _id: ObjectId(id) })

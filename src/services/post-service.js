@@ -6,7 +6,7 @@ exports.getPosts = () => {
         db
             .collection('post')
             .find()
-            .project({ 'title': 1, 'description': 1 })
+            .project({ 'title': 1, 'description': 1, "category" : 1, "userId" : 1})
             .toArray()
             .then(books => resolve(books))
             .catch(err => reject(err));
@@ -81,7 +81,7 @@ exports.removeComment = (id, body, userId) => {
     return new Promise((resolve, reject) => {
         db
             .collection('post')
-            .update({ _id: ObjectId(id) },
+            .updateOne({ _id: ObjectId(id) },
                 
                         {$pull :
                         {
